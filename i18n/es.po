@@ -1,0 +1,29 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* chimpex_account_treasury_forecast
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0rc1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-03 10:32+0000\n"
+"PO-Revision-Date: 2018-06-03 12:32+0100\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#. module: chimpex_account_treasury_forecast
+#: field:account.treasury.forecast.invoice,pledge_bank_id:0
+#: field:account.treasury.forecast.invoice,forecast_bank_id:0
+#: field:account.treasury.forecast.line,forecast_bank_id:0
+msgid "Bank"
+msgstr "Banco"
+
+#. module: chimpex_account_treasury_forecast
+#: field:account.treasury.forecast,check_pledged:0
+msgid "Pledged"
+msgstr "Descuento"
+
