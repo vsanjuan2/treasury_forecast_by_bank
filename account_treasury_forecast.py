@@ -33,7 +33,6 @@ class AccountTreasuryForecast(models.Model):
 
     @api.one
     def calculate_invoices(self):
-        print 'hello'
         invoice_obj = self.env['account.invoice']
         treasury_invoice_obj = self.env['account.treasury.forecast.invoice']
         new_invoice_ids = []
