@@ -19,18 +19,30 @@
             <field name="arch" type="xml">
                 <field name="journal_id" position="after">
                     <field name="pledge_bank_id"/>
-                    <field name="forecast_bank_id"/>
+                    <field name="forecast_bank_id" invisible="1"/>
                 </field>
             </field>
         </record>
 
         <record model="ir.ui.view" id="chimpex_account_treasury_forecast_line_tree_view">
-            <field name="name">chimpex.account.treasury.forecast.line.form</field>
+            <field name="name">chimpex.account.treasury.forecast.line.tree</field>
             <field name="model">account.treasury.forecast.line</field>
             <field name="inherit_id" ref="account_treasury_forecast.account_treasury_forecast_line_tree_view"/>
             <field name="arch" type="xml">
                 <field name="partner_id" position="after">
+                    <field name="pledge_bank_id"/>
                     <field name="forecast_bank_id"/>
+                </field>
+            </field>
+        </record>
+
+         <record model="ir.ui.view" id="chimpex_account_treasury_forecast_line_template_tree_view">
+            <field name="name">chimpex.account.treasury.forecast.line.template.tree</field>
+            <field name="model">account.treasury.forecast.line.template</field>
+            <field name="inherit_id" ref="account_treasury_forecast.account_treasury_forecast_line_template_tree_view"/>
+            <field name="arch" type="xml">
+                <field name="journal_id" position="after">
+                    <field name="pledge_bank_id" invisible="True"/>
                 </field>
             </field>
         </record>

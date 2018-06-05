@@ -36,6 +36,14 @@ class AccountTreasuryForecast(models.Model):
         return True
 
     @api.one
+    def calculate_cashflow(self):
+        result = super(AccountTreasuryForecast, self).calculate_cashflow()
+        for cashflow_o in self.cashflow_ids:
+            pledge_bank_id = cashflow_o.template_line_id.invoice_id.pledge_bank_id.id
+            cashflow_o.pledge_bank_id = pledge_bank_id
+        return result
+
+    @api.one
     def calculate_invoices(self):
         invoice_obj = self.env['account.invoice']
         treasury_invoice_obj = self.env['account.treasury.forecast.invoice']
@@ -75,9 +83,53 @@ class AccountTreasuryForecast(models.Model):
                     'in_invoice_ids': [(6, 0, in_invoice_lst)]})
         return new_invoice_ids
 
+
+    @api.one
+    def calculate_line(self):
+        line_obj = self.env['account.treasury.forecast.line']
+        temp_line_obj = self.env['account.treasury.forecast.line.template']
+        new_line_ids = []
+        temp_line_lst = temp_line_obj.search([('treasury_template_id', '=',
+                                               self.template_id.id)])
+        for line_o in temp_line_lst:
+            if ((line_o.date > self.start_date and
+                    line_o.date < self.end_date) or
+                    not line_o.date) and not line_o.paid:
+                values = {
+                    'name': line_o.name,
+                    'date': line_o.date,
+                    'line_type': line_o.line_type,
+                    'partner_id': line_o.partner_id.id,
+                    'template_line_id': line_o.id,
+                    'amount': line_o.amount,
+                    'pledge_bank_id':line_o.invoice_id.pledge_bank_id.id,
+                    'treasury_id': self.id,
+                }
+                new_line_id = line_obj.create(values)
+                new_line_ids.append(new_line_id)
+        return new_line_ids
+
 class AccountTreasuryForecastLine(models.Model):
     _inherit = 'account.treasury.forecast.line'
+
+    pledge_bank_id = fields.Many2one(
+        comodel_name='res.partner.bank',
+        string='Pledge Bank')
 
     forecast_bank_id = fields.Many2one(
         comodel_name='res.partner.bank', 
         string='Forecast Bank')
+
+class AccountTreasuryForecastLineTemplate(models.Model):
+    _inherit = 'account.treasury.forecast.line.template'
+
+    pledge_bank_id = fields.Many2one(
+        comodel_name='res.partner.bank',
+        string='Pledge Bank')
+
+class AccountTreasuryForecastCashflow(models.Model):
+    _inherit = "account.treasury.forecast.cashflow"
+    
+    pledge_bank_id = fields.Many2one(
+        comodel_name='res.partner.bank',
+        string='Pledge Bank')

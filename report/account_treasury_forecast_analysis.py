@@ -52,7 +52,7 @@ class ReportAccountTreasuryForecastAnalysis(models.Model):
                     ELSE -amount
                     END as balance,
                     payment_mode_id,
-                    pledge_bank_id,
+                    tfl.pledge_bank_id,
                     CASE WHEN tfl.line_type='receivable' THEN 'in'
                     ELSE 'out'
                     END as type
@@ -73,7 +73,7 @@ class ReportAccountTreasuryForecastAnalysis(models.Model):
                     END as debit,
                     amount as balance,
                     payment_mode_id,
-                    pledge_bank_id,
+                    tcf.pledge_bank_id,
                     flow_type as type
                 from
                     account_treasury_forecast tf inner join
