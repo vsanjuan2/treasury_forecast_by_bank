@@ -66,7 +66,7 @@ class AccountTreasuryForecast(models.Model):
         else:
             invoice_ids = invoice_obj.search([('date_due', '>', self.start_date),
                                           ('date_due', '<', self.end_date),
-                                          '|'('state', 'in', tuple(state))])
+                                          ('state', 'in', tuple(state))])
         for invoice_o in invoice_ids:
             values = {
                 'invoice_id': invoice_o.id,
