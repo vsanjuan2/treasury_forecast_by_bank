@@ -27,3 +27,15 @@ msgstr "Banco"
 msgid "Pledged"
 msgstr "Descuento"
 
+#. module: chimpex_account_treasury_forecast
+#: model:ir.actions.act_window,name:chimpex_account_treasury_forecast.act_treasury_forecast_3_report_bank
+#: view:report.account.treasury.forecast.analysis:chimpex_account_treasury_forecast.chimpex_report_treasury_forecast_analysis_form
+#: view:report.account.treasury.forecast.analysis:account_treasury_forecast_banking.chimpex_report_treasury_forecast_analysis_search
+#: view:report.account.treasury.forecast.analysis:account_treasury_forecast_banking.chimpex_report_treasury_forecast_analysis_tree
+msgid "Bank Breakdown Balance"
+msgstr "Banco desglose del balance"
+
+#. module: chimpex_account_treasury_forecast
+#: field:report.account.treasury.forecast.analysis,pledge_bank_id:0
+msgid "Pledge Bank"
+msgstr "Banco"

@@ -35,7 +35,7 @@
             </field>
         </record>
 
-        <act_window name="Breakdown Balance By Bank"
+        <act_window name="Bank Breakdown Balance"
         domain="[('treasury_id', '=', active_id)]"
         res_model="report.account.treasury.forecast.analysis"
         src_model="account.treasury.forecast"
