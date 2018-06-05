@@ -23,6 +23,10 @@ class AccountTreasuryForecast(models.Model):
     check_pledged = fields.Boolean(
         string='Pledged')
 
+    pledge_bank_id = fields.Many2one(
+        comodel_name='res.partner.bank',
+        string='Pledge Bank')
+
     @api.multi
     def button_calculate(self):
         self.restart()

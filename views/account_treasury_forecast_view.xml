@@ -34,5 +34,12 @@
                 </field>
             </field>
         </record>
+
+        <act_window name="Breakdown Balance By Bank"
+        domain="[('treasury_id', '=', active_id)]"
+        res_model="report.account.treasury.forecast.analysis"
+        src_model="account.treasury.forecast"
+        id="act_treasury_forecast_3_report_bank"
+        context="{'group_by':'pledge_bank_id'}"/>
     </data>
 </openerp>

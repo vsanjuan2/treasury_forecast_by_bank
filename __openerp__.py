@@ -14,10 +14,10 @@ Chimpex Accounting and Financial Management.
         recurring payments and variable payments.
     """,
     'website': 'tosinkomolafe.com',
-    'depends' : ['account_treasury_forecast'],
+    'depends' : ['account_treasury_forecast_banking', 'account_treasury_forecast_cashflow_banking'],
     'data': [
         'views/account_treasury_forecast_view.xml',
-     
+        'report/account_treasury_forecast_analysis_view.xml'
     ],
     'qweb' : [],
     'demo': [],

@@ -1,0 +1,39 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="chimpex_report_treasury_forecast_analysis_tree">
+            <field name="name">chimpex.report.treasury.forecast.analysis.tree</field>
+            <field name="model">report.account.treasury.forecast.analysis</field>
+            <field name="inherit_id" ref="account_treasury_forecast_banking.report_treasury_forecast_analysis_tree"/>
+            <field name="arch" type="xml">
+                <field name="payment_mode_id" position="after">
+                    <field name="pledge_bank_id"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="chimpex_report_treasury_forecast_analysis_search">
+            <field name="name">chimpex.report.treasury.forecast.analysis.search</field>
+            <field name="model">report.account.treasury.forecast.analysis</field>
+            <field name="inherit_id" ref="account_treasury_forecast_banking.report_treasury_forecast_analysis_search"/>
+            <field name="arch" type="xml">
+                <field name="type" position="after">
+                    <field name="pledge_bank_id"/>
+                </field>
+                <xpath expr="//filter[@string='Type']" position="after">
+                    <filter string="Pledge Bank" context="{'group_by': 'pledge_bank_id'}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="chimpex_report_treasury_forecast_analysis_form">
+            <field name="name">chimpex.report.treasury.forecast.analysis.form</field>
+            <field name="model">report.account.treasury.forecast.analysis</field>
+            <field name="inherit_id" ref="account_treasury_forecast_banking.report_treasury_forecast_analysis_form"/>
+            <field name="arch" type="xml">
+                <field name="payment_mode_id" positin="after">
+                    <field name="pledge_bank_id"/>
+                </field>      
+            </field>
+        </record>
+    </data>
+</openerp>
