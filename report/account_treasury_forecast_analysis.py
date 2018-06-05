@@ -39,7 +39,7 @@ class ReportAccountTreasuryForecastAnalysis(models.Model):
             create or replace view report_account_treasury_forecast_analysis
                 as (
                 select
-                    tfl.id || 'l' AS id,
+                    tfl.id,
                     treasury_id,
                     tfl.date as date,
                     CASE WHEN tfl.line_type='receivable' THEN 0.0
@@ -62,7 +62,7 @@ class ReportAccountTreasuryForecastAnalysis(models.Model):
                         tfl.treasury_id
                 union
                 select
-                    tcf.id || 'c' AS id,
+                    tcf.id,
                     treasury_id,
                     tcf.date as date,
                     CASE WHEN tcf.flow_type='in' THEN 0.0
@@ -81,7 +81,7 @@ class ReportAccountTreasuryForecastAnalysis(models.Model):
                         tcf.treasury_id
                 union
                 select
-                    tfii.id || 'i' AS id,
+                    tfii.id,
                     treasury_id,
                     tfii.date_due as date,
                     CASE WHEN ai.type='in_invoice' THEN tfii.total_amount
@@ -107,7 +107,7 @@ class ReportAccountTreasuryForecastAnalysis(models.Model):
                     account_invoice ai on ai.id = tfii.invoice_id
                 union
                 select
-                    tfio.id || 'o' AS id,
+                    tfio.id,
                     treasury_id,
                     tfio.date_due as date,
                     CASE WHEN ai.type='out_invoice' THEN 0.0

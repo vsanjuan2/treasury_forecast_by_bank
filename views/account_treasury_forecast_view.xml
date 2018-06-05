@@ -47,6 +47,29 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="chimpex_account_treasury_forecast_line_template_tree_view">
+            <field name="name">chimpex.account.treasury.forecast.line.template.tree</field>
+            <field name="model">account.treasury.forecast.line.template</field>
+            <field name="inherit_id" ref="account_treasury_forecast.account_treasury_forecast_line_template_tree_view"/>
+            <field name="arch" type="xml">
+                <field name="journal_id" position="after">
+                    <field name="pledge_bank_id" invisible="True"/>
+                </field>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="chimpex_account_treasury_forecast_cashflow_tree_view_inh">
+            <field name="name">chimpex_account.treasury.forecast.cashflow.tree.inh</field>
+            <field name="inherit_id" ref="account_treasury_forecast_cashflow_banking.account_treasury_forecast_cashflow_tree_view_inh" />
+            <field name="model">account.treasury.forecast.cashflow</field>
+            <field name="arch" type="xml">
+                <field name="payment_mode_id" position="after">
+                    <field name="pledge_bank_id"/>
+                </field>
+            </field>
+        </record>
+
         <act_window name="Bank Breakdown Balance"
         domain="[('treasury_id', '=', active_id)]"
         res_model="report.account.treasury.forecast.analysis"
