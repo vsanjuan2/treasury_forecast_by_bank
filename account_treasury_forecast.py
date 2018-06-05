@@ -51,15 +51,22 @@ class AccountTreasuryForecast(models.Model):
         in_invoice_lst = []
         out_invoice_lst = []
         state = []
+        payment_status = False
         if self.check_draft:
             state.append("draft")
         if self.check_proforma:
             state.append("proforma")
         if self.check_open:
             state.append("open")
-        invoice_ids = invoice_obj.search([('date_due', '>', self.start_date),
+        if self.check_pledged:
+            invoice_ids = invoice_obj.search([('date_due', '>', self.start_date),
                                           ('date_due', '<', self.end_date),
-                                          ('state', 'in', tuple(state))])
+                                          '|',('state', 'in', tuple(state)), 
+                                          ('payment_status','=', 'pledged')])
+        else:
+            invoice_ids = invoice_obj.search([('date_due', '>', self.start_date),
+                                          ('date_due', '<', self.end_date),
+                                          '|'('state', 'in', tuple(state))])
         for invoice_o in invoice_ids:
             values = {
                 'invoice_id': invoice_o.id,
