@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# © 2018 Tosin Komolafe @ Ballotnet Solutions Ltd <komolafetosin@gmail.com>
+# © 2018 Salvador Sanjuan @ Acelerem salvador@aceleratuempresa.net
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from openerp import models, fields, api
@@ -61,7 +61,7 @@ class AccountTreasuryForecast(models.Model):
         if self.check_pledged:
             invoice_ids = invoice_obj.search([('date_due', '>', self.start_date),
                                           ('date_due', '<', self.end_date),
-                                          '|', ('state', 'in', tuple(state)), 
+                                          '|', ('state', 'in', tuple(state)),
                                           ('payment_status','=', 'pledged')])
         else:
             invoice_ids = invoice_obj.search([('date_due', '>', self.start_date),
@@ -125,7 +125,7 @@ class AccountTreasuryForecastLine(models.Model):
         string='Pledge Bank')
 
     forecast_bank_id = fields.Many2one(
-        comodel_name='res.partner.bank', 
+        comodel_name='res.partner.bank',
         string='Forecast Bank')
 
 class AccountTreasuryForecastLineTemplate(models.Model):
@@ -137,7 +137,7 @@ class AccountTreasuryForecastLineTemplate(models.Model):
 
 class AccountTreasuryForecastCashflow(models.Model):
     _inherit = "account.treasury.forecast.cashflow"
-    
+
     pledge_bank_id = fields.Many2one(
         comodel_name='res.partner.bank',
         string='Pledge Bank')

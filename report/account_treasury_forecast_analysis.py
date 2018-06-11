@@ -24,11 +24,11 @@ class ReportAccountTreasuryForecastAnalysis(models.Model):
     _inherit = "report.account.treasury.forecast.analysis"
 
     pledge_bank_id = fields.Many2one(
-        comodel_name='res.partner.bank', 
+        comodel_name='res.partner.bank',
         string='Pledge Bank')
 
     forecast_bank_id = fields.Many2one(
-        comodel_name='res.partner.bank', 
+        comodel_name='res.partner.bank',
         string='Forecast Bank')
 
 

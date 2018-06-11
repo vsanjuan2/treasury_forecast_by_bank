@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* chimpex_account_treasury_forecast
+#	* acelerem_account_treasury_forecast
 #
 msgid ""
 msgstr ""
@@ -15,28 +15,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
 
-#. module: chimpex_account_treasury_forecast
+#. module: acelerem_account_treasury_forecast
 #: field:account.treasury.forecast.invoice,pledge_bank_id:0
 #: field:account.treasury.forecast.invoice,forecast_bank_id:0
 #: field:account.treasury.forecast.line,forecast_bank_id:0
 msgid "Bank"
 msgstr "Bank"
 
-#. module: chimpex_account_treasury_forecast
+#. module: acelerem_account_treasury_forecast
 #: field:account.treasury.forecast,check_pledged:0
 msgid "Pledged"
 msgstr "Pledged"
 
-#. module: chimpex_account_treasury_forecast
-#: model:ir.actions.act_window,name:chimpex_account_treasury_forecast.act_treasury_forecast_3_report_bank
-#: view:report.account.treasury.forecast.analysis:chimpex_account_treasury_forecast.chimpex_report_treasury_forecast_analysis_form
-#: view:report.account.treasury.forecast.analysis:account_treasury_forecast_banking.chimpex_report_treasury_forecast_analysis_search
-#: view:report.account.treasury.forecast.analysis:account_treasury_forecast_banking.chimpex_report_treasury_forecast_analysis_tree
+#. module: acelerem_account_treasury_forecast
+#: model:ir.actions.act_window,name:acelerem_account_treasury_forecast.act_treasury_forecast_3_report_bank
+#: view:report.account.treasury.forecast.analysis:acelerem_account_treasury_forecast.acelerem_report_treasury_forecast_analysis_form
+#: view:report.account.treasury.forecast.analysis:account_treasury_forecast_banking.acelerem_report_treasury_forecast_analysis_search
+#: view:report.account.treasury.forecast.analysis:account_treasury_forecast_banking.acelerem_report_treasury_forecast_analysis_tree
 msgid "Bank Breakdown Balance"
 msgstr "Bank Breakdown Balance"
 
-#. module: chimpex_account_treasury_forecast
+#. module: acelerem_account_treasury_forecast
 #: field:report.account.treasury.forecast.analysis,pledge_bank_id:0
 msgid "Pledge Bank"
 msgstr "Pledge Bank"
-
