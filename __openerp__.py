@@ -2,9 +2,9 @@
 # © 2018 TSalvador Sanjuan @ Acelerem salvador@aceleratuempresa.net
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
-    'name' : 'Chimpex Account Tresury Forecast',
+    'name' : 'Acelerem Account Tresury Forecast',
     'version' : '1.0',
-    'author' : 'Chimpex Solutions Ltd',
+    'author' : 'Acelerem',
     'category' : 'Accounting & Finance',
     'description' : """
 Chimpex Accounting and Financial Management.
@@ -13,7 +13,7 @@ Chimpex Accounting and Financial Management.
         Calculates the treasury forecast from supplier and customer invoices,
         recurring payments and variable payments.
     """,
-    'website': 'tosinkomolafe.com',
+    'website': 'odoo.acelerem.com',
     'depends' : ['account_treasury_forecast_banking', 'account_treasury_forecast_cashflow_banking'],
     'data': [
         'views/account_treasury_forecast_view.xml',
