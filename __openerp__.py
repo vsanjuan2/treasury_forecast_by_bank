@@ -17,7 +17,8 @@ Chimpex Accounting and Financial Management.
     'depends' : ['account_treasury_forecast_banking', 'account_treasury_forecast_cashflow_banking'],
     'data': [
         'views/account_treasury_forecast_view.xml',
-        'report/account_treasury_forecast_analysis_view.xml'
+        'views/account_treasury_forecast_template_view.xml',
+        'report/account_treasury_forecast_analysis_view.xml',
     ],
     'qweb' : [],
     'demo': [],
