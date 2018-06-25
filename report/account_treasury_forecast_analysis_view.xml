@@ -30,7 +30,7 @@
             <field name="model">report.account.treasury.forecast.analysis</field>
             <field name="inherit_id" ref="account_treasury_forecast_banking.report_treasury_forecast_analysis_form"/>
             <field name="arch" type="xml">
-                <field name="payment_mode_id" positin="after">
+                <field name="payment_mode_id" position="after">
                     <field name="pledge_bank_id"/>
                 </field>
             </field>
