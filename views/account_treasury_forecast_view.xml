@@ -56,6 +56,17 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="account_treasury_forecast_cashflow_template_tree_view_inh_new">
+            <field name="name">account.treasury.forecast.cashflow.template.tree.inh.new</field>
+            <field name="inherit_id" ref="account_treasury_forecast_cashflow.account_treasury_forecast_cashflow_template_tree_view"/>
+            <field name="model">account.treasury.forecast.cashflow.template</field>
+            <field name="arch" type="xml">
+                <field name="payment_mode_id" position="after">
+                    <field name="pledge_bank_id" />
+                </field>
+            </field>
+        </record>
+
 
         <record model="ir.ui.view" id="acelerem_account_treasury_forecast_cashflow_tree_view_inh">
             <field name="name">acelerem_account.treasury.forecast.cashflow.tree.inh</field>
