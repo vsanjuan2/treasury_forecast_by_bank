@@ -39,7 +39,7 @@ class AccountTreasuryForecast(models.Model):
     def calculate_cashflow(self):
         result = super(AccountTreasuryForecast, self).calculate_cashflow()
         for cashflow_o in self.cashflow_ids:
-            pledge_bank_id = cashflow_o.template_line_id.invoice_id.pledge_bank_id.id
+            pledge_bank_id = cashflow_o.template_line_id.pledge_bank_id.id
             cashflow_o.pledge_bank_id = pledge_bank_id
         return result
 
@@ -137,6 +137,14 @@ class AccountTreasuryForecastLineTemplate(models.Model):
 
 class AccountTreasuryForecastCashflow(models.Model):
     _inherit = "account.treasury.forecast.cashflow"
+
+    pledge_bank_id = fields.Many2one(
+        comodel_name='res.partner.bank',
+        string='Pledge Bank')
+
+
+class AccountTreasuryForecastCashflowTemplate(models.Model):
+    _inherit = "account.treasury.forecast.cashflow.template"
 
     pledge_bank_id = fields.Many2one(
         comodel_name='res.partner.bank',
