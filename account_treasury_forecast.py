@@ -110,7 +110,7 @@ class AccountTreasuryForecast(models.Model):
                     'partner_id': line_o.partner_id.id,
                     'template_line_id': line_o.id,
                     'amount': line_o.amount,
-                    'pledge_bank_id':line_o.invoice_id.pledge_bank_id.id,
+                    'pledge_bank_id':line_o.pledge_bank_id.id,
                     'treasury_id': self.id,
                 }
                 new_line_id = line_obj.create(values)
